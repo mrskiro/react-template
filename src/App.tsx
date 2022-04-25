@@ -1,3 +1,3 @@
 import * as React from "react"
-
-export const App = () => <h1>template</h1>
+import { Routes } from "@/routes"
+export const App = () => <Routes />
