@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/ban-types": ["off"],
+    "react/prop-types": ["off"],
   },
   settings: {
     react: {
