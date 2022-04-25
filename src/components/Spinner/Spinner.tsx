@@ -1,11 +1,8 @@
-/* eslint-disable react/prop-types */
 import * as React from "react"
-import * as Styles from "./styles.css"
+import * as S from "./styles"
 
-type Props = {} & Styles.Variants
+type Props = {}
 
-export const Spinner = React.forwardRef<HTMLDivElement, Props>((props, ref) => (
-  <div ref={ref} className={Styles.recipe({ size: props.size })} />
-))
+export const Spinner = React.forwardRef<HTMLDivElement, Props>((_props, ref) => <S.Div ref={ref} />)
 
 Spinner.displayName = "Spinner"
