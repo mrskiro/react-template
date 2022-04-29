@@ -29,6 +29,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/ban-types": ["off"],
+    "@typescript-eslint/no-empty-function": ["off"],
     "react/prop-types": ["off"],
   },
   settings: {

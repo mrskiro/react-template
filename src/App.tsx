@@ -1,9 +1,19 @@
 import * as React from "react"
 import { Routes } from "@/routes"
 import * as Errors from "@/lib/errors"
+import { Main } from "./layouts"
+import { Spinner } from "@/components/Spinner"
 
 export const App = () => (
   <Errors.ErrorBoundary fallback={(err) => <p>Something went wrong :{JSON.stringify(err)}</p>}>
-    <Routes />
+    <React.Suspense
+      fallback={
+        <Main>
+          <Spinner />
+        </Main>
+      }
+    >
+      <Routes />
+    </React.Suspense>
   </Errors.ErrorBoundary>
 )
