@@ -5,13 +5,13 @@ import { Input } from "@/components/input/Input"
 import { Button } from "@/components/button"
 import { useInput } from "./hooks"
 import { Link } from "@/components/link/Link"
-import { useAuth } from "@/context/auth"
+import { useLogin } from "@/features/auth"
 
 export const Login = () => {
   const email = useInput()
   const password = useInput()
 
-  const { login } = useAuth()
+  const { login } = useLogin()
 
   const onClickLogin = React.useCallback(async () => {
     await login({
@@ -22,21 +22,23 @@ export const Login = () => {
 
   return (
     <Layouts.Main>
-      <Wrap>
-        <Title>login</Title>
-        <InputWrap>
-          <label htmlFor={email.id}>email</label>
-          <Input type="email" {...email} />
-        </InputWrap>
-        <InputWrap>
-          <label htmlFor={password.id}>password</label>
-          <Input type="password" {...password} />
-        </InputWrap>
-        <ActionArea>
-          <Button onClick={onClickLogin}>login</Button>
-        </ActionArea>
-        <Link href="#">Sign up?</Link>
-      </Wrap>
+      <form>
+        <Wrap>
+          <Title>login</Title>
+          <InputWrap>
+            <label htmlFor={email.id}>email</label>
+            <Input type="email" autoComplete="email" {...email} />
+          </InputWrap>
+          <InputWrap>
+            <label htmlFor={password.id}>password</label>
+            <Input type="password" autoComplete="current-password" {...password} />
+          </InputWrap>
+          <ActionArea>
+            <Button onClick={onClickLogin}>login</Button>
+          </ActionArea>
+          <Link href="#">Sign up?</Link>
+        </Wrap>
+      </form>
     </Layouts.Main>
   )
 }

@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Navigate, Outlet } from "react-router-dom"
-import { useAuth } from "@/context/auth"
+import { useGetMe } from "@/features/auth"
 
 export const Protected = () => {
-  const { me } = useAuth()
+  const { me } = useGetMe()
   if (!me) return <Navigate to="/login" replace />
   return <Outlet />
 }

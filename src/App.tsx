@@ -3,7 +3,6 @@ import { Routes } from "@/routes"
 import * as Errors from "@/lib/errors"
 import { Main } from "./layouts"
 import { Spinner } from "@/components/spinner"
-import { AuthProvider } from "@/context/auth"
 import { newFetchProvider } from "@/lib/react-query"
 
 const FetchProvider = newFetchProvider({
@@ -22,9 +21,7 @@ export const App = () => (
       fallback={(err) => <p>Something went wrong :{JSON.stringify(err)}</p>}
     >
       <FetchProvider>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
+        <Routes />
       </FetchProvider>
     </Errors.ErrorBoundary>
   </React.Suspense>

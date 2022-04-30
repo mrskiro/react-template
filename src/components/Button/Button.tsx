@@ -4,7 +4,11 @@ import styled from "styled-components"
 type Props = React.ComponentPropsWithoutRef<"button">
 
 export const Button = (props: React.PropsWithChildren<Props>) => {
-  return <SButton {...props}>{props.children}</SButton>
+  return (
+    <SButton type="button" {...props}>
+      {props.children}
+    </SButton>
+  )
 }
 
 const SButton = styled.button`

@@ -1,11 +1,11 @@
 import * as React from "react"
 import { Main } from "@/layouts"
-import { useAuth } from "@/context/auth"
+import { useGetMe } from "@/features/auth"
 
 type Props = {}
 
 export const Root = (_props: Props) => {
-  const { me } = useAuth()
+  const { me } = useGetMe()
   if (!me) {
     throw new Error("auth")
   }
