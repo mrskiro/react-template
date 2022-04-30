@@ -1,6 +1,6 @@
 import { rest } from "msw"
 
-export const handlers = [
+export const authHandlers = [
   rest.post("/login", (req, res, ctx) => {
     sessionStorage.setItem("is-authenticated", "true")
     return res(
