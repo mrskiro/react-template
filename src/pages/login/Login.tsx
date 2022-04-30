@@ -1,18 +1,24 @@
 import * as React from "react"
 import styled from "styled-components"
 import * as Layouts from "@/layouts"
-import { Input } from "@/components/Input/Input"
-import { Button } from "@/components/Button"
+import { Input } from "@/components/input/Input"
+import { Button } from "@/components/button"
 import { useInput } from "./hooks"
-import { Link } from "@/components/Link/Link"
+import { Link } from "@/components/link/Link"
+import { useAuth } from "@/context/auth"
 
 export const Login = () => {
   const email = useInput()
   const password = useInput()
 
-  const onClickLogin = React.useCallback(() => {
-    console.log("login")
-  }, [])
+  const { login } = useAuth()
+
+  const onClickLogin = React.useCallback(async () => {
+    await login({
+      email: email.value,
+      password: password.value,
+    })
+  }, [login, email.value, password.value])
 
   return (
     <Layouts.Main>

@@ -2,18 +2,36 @@ import * as React from "react"
 import { Routes } from "@/routes"
 import * as Errors from "@/lib/errors"
 import { Main } from "./layouts"
-import { Spinner } from "@/components/Spinner"
+import { Spinner } from "@/components/spinner"
+import { AuthProvider } from "@/context/auth"
+import { newFetchProvider } from "@/lib/react-query"
+
+const FetchProvider = newFetchProvider({
+  queries: {
+    refetchOnWindowFocus: false,
+    retry: false,
+    suspense: true,
+    useErrorBoundary: true,
+  },
+})
 
 export const App = () => (
-  <Errors.ErrorBoundary fallback={(err) => <p>Something went wrong :{JSON.stringify(err)}</p>}>
-    <React.Suspense
-      fallback={
-        <Main>
-          <Spinner />
-        </Main>
-      }
+  <React.Suspense fallback={<Loading />}>
+    <Errors.ErrorBoundary
+      onError={(err) => console.error(err)}
+      fallback={(err) => <p>Something went wrong :{JSON.stringify(err)}</p>}
     >
-      <Routes />
-    </React.Suspense>
-  </Errors.ErrorBoundary>
+      <FetchProvider>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </FetchProvider>
+    </Errors.ErrorBoundary>
+  </React.Suspense>
+)
+
+const Loading = () => (
+  <Main>
+    <Spinner />
+  </Main>
 )
