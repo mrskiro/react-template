@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { App } from "./App"
 import { ResetCSS } from "@/lib/globalStyles"
 import { worker } from "@/tests/mocks/api/browser"
+import { App } from "./App"
 
 if (process.env.NODE_ENV === "development") {
   worker.start({

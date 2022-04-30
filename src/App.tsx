@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Routes } from "@/routes"
 import * as Errors from "@/lib/errors"
-import { Main } from "./layouts"
-import { Spinner } from "@/components/spinner"
 import { newFetchProvider } from "@/lib/react-query"
+import { Spinner } from "@/components/spinner"
+import { Routes } from "@/routes"
+import { Main } from "./layouts"
 
 const FetchProvider = newFetchProvider({
   queries: {

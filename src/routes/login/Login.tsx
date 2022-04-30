@@ -1,7 +1,7 @@
 import * as React from "react"
-import * as Pages from "@/pages"
 import { Navigate, useNavigate } from "react-router-dom"
 import { useGetMe } from "@/features/auth"
+import * as Pages from "@/pages"
 
 export const Login = () => {
   const navigate = useNavigate()

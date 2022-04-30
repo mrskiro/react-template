@@ -1,7 +1,7 @@
-import { Spinner } from "@/components/spinner"
-import { ErrorBoundary } from "@/lib/errors"
 import * as React from "react"
 import styled from "styled-components"
+import { ErrorBoundary } from "@/lib/errors"
+import { Spinner } from "@/components/spinner"
 import { useGetObjectives } from "../../hooks"
 
 export const ObjectiveList = () => {

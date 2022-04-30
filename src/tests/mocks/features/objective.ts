@@ -1,5 +1,5 @@
-import { Objective } from "@/features/objective"
 import { faker } from "@faker-js/faker"
+import { Objective } from "@/features/objective"
 
 export const genObjective = (partial?: Partial<Objective>): Objective => ({
   id: faker.datatype.uuid(),

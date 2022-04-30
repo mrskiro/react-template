@@ -1,5 +1,5 @@
-import { apiInstance } from "@/lib/axios"
 import { useQuery } from "react-query"
+import { apiInstance } from "@/lib/axios"
 import { Objective } from "../types"
 import { key } from "./key"
 

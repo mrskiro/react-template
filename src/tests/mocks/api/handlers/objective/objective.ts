@@ -1,5 +1,5 @@
-import { genObjective } from "@/tests/mocks/features"
 import { rest } from "msw"
+import { genObjective } from "@/tests/mocks/features"
 
 export const objectiveHandlers = [
   rest.get("/objectives", (req, res, ctx) => {

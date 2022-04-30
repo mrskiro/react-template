@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Main } from "@/layouts"
-import { useGetMe } from "@/features/auth"
 import styled from "styled-components"
+import { useGetMe } from "@/features/auth"
 import { ObjectiveList } from "@/features/objective"
+import { Main } from "@/layouts"
 
 type Props = {}
 
