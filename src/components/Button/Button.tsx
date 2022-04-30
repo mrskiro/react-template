@@ -1,5 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
+import * as a from "axios"
+
+console.log(a)
 
 type Props = React.ComponentPropsWithoutRef<"button">
 
