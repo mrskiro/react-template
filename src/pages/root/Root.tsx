@@ -7,7 +7,7 @@ type Props = {}
 export const Root = (_props: Props) => {
   const { me } = useGetMe()
   if (!me) {
-    throw new Error("auth")
+    throw new Error("401")
   }
 
   return (

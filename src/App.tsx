@@ -10,7 +10,7 @@ const FetchProvider = newFetchProvider({
     refetchOnWindowFocus: false,
     retry: false,
     suspense: true,
-    useErrorBoundary: true,
+    useErrorBoundary: false,
   },
 })
 

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useMutation, useQueryClient } from "react-query"
+import { apiInstance } from "@/lib/axios"
 import { LoginInfo, Me } from "../types"
 import { key } from "./key"
 
@@ -15,11 +16,8 @@ export const useLogin = () => {
 
   const { mutateAsync } = useMutation(
     async (_data: LoginInfo) => {
-      return new Promise<Me>((res) => {
-        setTimeout(() => {
-          res({ name: "loggin!" })
-        }, 1000)
-      })
+      const res = await apiInstance.post<Me>("/login")
+      return res.data
     },
     { onSuccess: setMe }
   )

@@ -7,18 +7,27 @@ import { useInput } from "./hooks"
 import { Link } from "@/components/link/Link"
 import { useLogin } from "@/features/auth"
 
-export const Login = () => {
+type Props = {
+  toRoot: () => void
+}
+
+export const Login = ({ toRoot }: Props) => {
   const email = useInput()
   const password = useInput()
 
   const { login } = useLogin()
 
   const onClickLogin = React.useCallback(async () => {
-    await login({
-      email: email.value,
-      password: password.value,
-    })
-  }, [login, email.value, password.value])
+    try {
+      await login({
+        email: email.value,
+        password: password.value,
+      })
+      toRoot()
+    } catch (error) {
+      console.log("err")
+    }
+  }, [login, email.value, password.value, toRoot])
 
   return (
     <Layouts.Main>
